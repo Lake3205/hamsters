@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamster Fans - The Ultimate Hamster Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff9a56 0%, #ffcd67 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        header p {
+            font-size: 1.3rem;
+        }
+
+        section {
+            padding: 60px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #e67e22;
+        }
+
+        .about-hamsters {
+            background-color: #fff9e6;
+        }
+
+        .about-hamsters ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .about-hamsters li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0e6cc;
+            font-size: 1.1rem;
+        }
+
+        .about-hamsters li:before {
+            content: "🐹 ";
+        }
+
+        .hamster-fans {
+            background-color: #fff;
+        }
+
+        .fan-form {
+            background: #fef3e2;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .fan-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #e67e22;
+        }
+
+        .fan-form input,
+        .fan-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 2px solid #ffcd67;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .fan-form input:focus,
+        .fan-form textarea:focus {
+            outline: none;
+            border-color: #e67e22;
+        }
+
+        .fan-form button {
+            background: linear-gradient(135deg, #ff9a56 0%, #e67e22 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .fan-form button:hover {
+            transform: scale(1.05);
+        }
+
+        .guinea-pig-hate {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+        }
+
+        .guinea-pig-hate h2 {
+            color: white;
+        }
+
+        .guinea-pig-hate ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .guinea-pig-hate li {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            font-size: 1.1rem;
+        }
+
+        .guinea-pig-hate li:before {
+            content: "❌ ";
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🐹 Hamster Fans United 🐹</h1>
+        <p>The Ultimate One-Stop Website for Hamster Enthusiasts!</p>
+    </header>
+
+    <section class="about-hamsters">
+        <h2>Why Hamsters Are Amazing</h2>
+        <p>Hamsters are the perfect pets! Here's why we love them:</p>
+        <ul>
+            <li>They're adorable and fluffy with tiny paws</li>
+            <li>They have cute cheek pouches for storing food</li>
+            <li>They're low maintenance and easy to care for</li>
+            <li>They love running on their wheels (endless entertainment!)</li>
+            <li>They come in many colors and varieties</li>
+            <li>They're nocturnal adventurers</li>
+            <li>They make the cutest squeaking sounds</li>
+            <li>They fit perfectly in the palm of your hand</li>
+        </ul>
+    </section>
+
+    <section class="hamster-fans">
+        <h2>Join the Hamster Fan Club!</h2>
+        <p>Are you a true hamster enthusiast? Sign up below to connect with fellow hamster lovers!</p>
+        <div class="fan-form">
+            <form id="fanForm">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required minlength="2" maxlength="100">
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required maxlength="254">
+
+                <label for="hamsterName">Your Hamster's Name</label>
+                <input type="text" id="hamsterName" name="hamsterName" placeholder="What's your hamster called?" maxlength="100">
+
+                <label for="message">Why Do You Love Hamsters?</label>
+                <textarea id="message" name="message" rows="4" placeholder="Tell us about your love for hamsters!" maxlength="500"></textarea>
+                
+                <div id="successMessage" style="display: none; background: #27ae60; color: white; padding: 15px; border-radius: 5px; margin-bottom: 20px; text-align: center;">
+                    🐹 Thanks for joining the Hamster Fan Club! 🐹
+                </div>
+
+                <button type="submit">Join the Fan Club! 🐹</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="guinea-pig-hate">
+        <h2>Why Guinea Pigs Just Don't Compare</h2>
+        <p>Let's be honest - guinea pigs are NOT as great as hamsters. Here's why:</p>
+        <ul>
+            <li>They're way too big and clunky compared to cute compact hamsters</li>
+            <li>They make annoying loud wheek-wheek sounds constantly</li>
+            <li>They can't run on wheels like our athletic hamsters</li>
+            <li>They need way more space and are high maintenance</li>
+            <li>They don't have adorable cheek pouches</li>
+            <li>They're basically just oversized, less cute rodents</li>
+            <li>They require a companion - hamsters are independent!</li>
+            <li>They poop everywhere and way more than hamsters</li>
+        </ul>
+        <p style="margin-top: 20px; font-style: italic;">Team Hamster forever! 🐹💪</p>
+    </section>
+
+    <footer>
+        <p>© 2024 Hamster Fans United. Made with ❤️ for hamster lovers everywhere.</p>
+        <p>🐹 Hamsters Rule, Guinea Pigs Drool! 🐹</p>
+    </footer>
+
+    <script>
+        document.getElementById('fanForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var successMessage = document.getElementById('successMessage');
+            successMessage.style.display = 'block';
+            this.reset();
+            setTimeout(function() {
+                successMessage.style.display = 'none';
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
