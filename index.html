@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>~*~ HaMsTeR FaNs UnItEd ~*~ The ULTIMATE Hamster Website!!!</title>
+    <style>
+        /* 90's STYLING - RETRO VIBES! */
+        @keyframes rainbow {
+            0% { color: #ff0000; }
+            15% { color: #ff8000; }
+            30% { color: #ffff00; }
+            45% { color: #00ff00; }
+            60% { color: #00ffff; }
+            75% { color: #0080ff; }
+            90% { color: #ff00ff; }
+            100% { color: #ff0000; }
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;
+            background: #000080;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffff00' fill-opacity='0.1'%3E%3Cpath d='M20 0L40 20L20 40L0 20z'/%3E%3C/g%3E%3C/svg%3E");
+            color: #ffff00;
+            line-height: 1.6;
+        }
+
+        .main-wrapper {
+            display: flex;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .main-content {
+            flex: 1;
+            margin-right: 280px;
+        }
+
+        /* LIVE CHAT SIDEBAR */
+        .live-chat {
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 270px;
+            height: 100vh;
+            background: linear-gradient(180deg, #800080 0%, #000080 100%);
+            border-left: 5px ridge #ff00ff;
+            padding: 10px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+        .live-chat h3 {
+            text-align: center;
+            color: #00ff00;
+            font-size: 1.2rem;
+            text-shadow: 2px 2px #ff0000;
+            animation: rainbow 3s infinite;
+            margin-bottom: 10px;
+        }
+
+        .chat-messages {
+            height: 300px;
+            background: #000000;
+            border: 3px inset #808080;
+            padding: 10px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+            font-size: 0.85rem;
+        }
+
+        .chat-message {
+            margin-bottom: 8px;
+            padding: 5px;
+            background: #000080;
+            border: 1px solid #00ffff;
+        }
+
+        .chat-message .username {
+            color: #00ff00;
+            font-weight: bold;
+        }
+
+        .chat-message .text {
+            color: #ffffff;
+        }
+
+        .chat-input {
+            width: 100%;
+            padding: 8px;
+            background: #ffffff;
+            border: 3px inset #808080;
+            font-family: 'Comic Sans MS', cursive;
+            margin-bottom: 5px;
+        }
+
+        .chat-btn {
+            width: 100%;
+            padding: 8px;
+            background: linear-gradient(180deg, #00ff00 0%, #008000 100%);
+            border: 3px outset #00ff00;
+            color: #000000;
+            font-family: 'Comic Sans MS', cursive;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .chat-btn:active {
+            border-style: inset;
+        }
+
+        .online-users {
+            margin-top: 15px;
+            padding: 10px;
+            background: #000000;
+            border: 3px inset #808080;
+        }
+
+        .online-users h4 {
+            color: #ffff00;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .user-list {
+            font-size: 0.8rem;
+        }
+
+        .user-online {
+            color: #00ff00;
+        }
+
+        .user-online::before {
+            content: "● ";
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(180deg, #ff00ff 0%, #800080 50%, #000080 100%);
+            border-bottom: 5px ridge #ffff00;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .marquee-top {
+            background: #ff0000;
+            color: #ffff00;
+            padding: 5px;
+            font-weight: bold;
+            overflow: hidden;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 15s linear infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #00ffff;
+            text-shadow: 3px 3px #ff0000, -2px -2px #00ff00;
+            animation: rainbow 2s infinite;
+        }
+
+        header p {
+            color: #ffff00;
+            font-size: 1.1rem;
+            animation: blink 1s infinite;
+        }
+
+        .construction-gif {
+            font-size: 1.5rem;
+            animation: bounce 0.5s infinite;
+            display: inline-block;
+        }
+
+        /* NAVIGATION */
+        nav {
+            background: #808080;
+            border: 3px outset #c0c0c0;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            display: inline-block;
+            padding: 8px 15px;
+            margin: 5px;
+            background: linear-gradient(180deg, #c0c0c0 0%, #808080 100%);
+            border: 3px outset #c0c0c0;
+            color: #000000;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            background: linear-gradient(180deg, #ffff00 0%, #ff8000 100%);
+            border-color: #ffff00;
+        }
+
+        nav a:active {
+            border-style: inset;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 20px;
+            margin: 20px;
+            border: 5px ridge #ff00ff;
+            background: linear-gradient(180deg, #000080 0%, #000040 100%);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #00ff00;
+            text-shadow: 2px 2px #ff0000;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        /* HAMSTER OF THE WEEK */
+        .hamster-of-week {
+            background: linear-gradient(180deg, #ffff00 0%, #ff8000 100%);
+            border: 5px double #ff0000;
+            text-align: center;
+        }
+
+        .hamster-of-week h2 {
+            color: #ff0000;
+            text-shadow: 2px 2px #000000;
+            animation: rainbow 2s infinite;
+        }
+
+        .hotw-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .hotw-image {
+            width: 200px;
+            height: 200px;
+            background: #ffffff;
+            border: 5px ridge #ff00ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+            animation: spin 10s linear infinite;
+        }
+
+        .hotw-info {
+            background: #ffffff;
+            color: #000000;
+            padding: 15px;
+            border: 3px inset #808080;
+            max-width: 300px;
+        }
+
+        .hotw-info h3 {
+            color: #ff0000;
+            font-size: 1.5rem;
+        }
+
+        .hotw-stars {
+            color: #ffff00;
+            text-shadow: 1px 1px #000000;
+            animation: blink 0.5s infinite;
+        }
+
+        /* NEWS SECTION */
+        .news-section {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        .news-section h2 {
+            color: #ff0000;
+            background: #ffff00;
+            padding: 10px;
+            border: 3px ridge #ff0000;
+        }
+
+        .news-item {
+            padding: 15px;
+            margin: 10px 0;
+            background: #ffffcc;
+            border: 2px solid #ff8000;
+            border-left: 5px solid #ff0000;
+        }
+
+        .news-item h4 {
+            color: #0000ff;
+            margin-bottom: 5px;
+        }
+
+        .news-item .date {
+            color: #808080;
+            font-size: 0.8rem;
+            font-style: italic;
+        }
+
+        .news-item p {
+            color: #000000;
+        }
+
+        .new-badge {
+            background: #ff0000;
+            color: #ffffff;
+            padding: 2px 8px;
+            font-size: 0.7rem;
+            animation: blink 0.8s infinite;
+            margin-left: 10px;
+        }
+
+        /* ABOUT HAMSTERS */
+        .about-hamsters {
+            background: linear-gradient(180deg, #008080 0%, #004040 100%);
+        }
+
+        .about-hamsters ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .about-hamsters li {
+            padding: 10px;
+            margin: 5px 0;
+            background: #000000;
+            border: 2px solid #00ffff;
+            color: #00ffff;
+        }
+
+        .about-hamsters li:before {
+            content: "🐹 ";
+        }
+
+        /* FORUM SECTION */
+        .forum-section {
+            background: linear-gradient(180deg, #800000 0%, #400000 100%);
+        }
+
+        .forum-section h2 {
+            color: #ffff00;
+        }
+
+        .forum-post {
+            background: #ffffcc;
+            color: #000000;
+            margin: 15px 0;
+            border: 3px ridge #808080;
+        }
+
+        .forum-header {
+            background: linear-gradient(180deg, #000080 0%, #000040 100%);
+            color: #ffffff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .forum-username {
+            color: #00ff00;
+            font-weight: bold;
+        }
+
+        .forum-date {
+            color: #c0c0c0;
+            font-size: 0.8rem;
+        }
+
+        .forum-body {
+            padding: 15px;
+        }
+
+        .forum-image {
+            max-width: 100%;
+            height: auto;
+            border: 3px ridge #808080;
+            margin: 10px 0;
+            background: #ffffff;
+            padding: 5px;
+        }
+
+        .forum-image img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .forum-image-placeholder {
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff00ff);
+            background-size: 400% 400%;
+            animation: gradient 3s ease infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .forum-reply-btn {
+            background: linear-gradient(180deg, #00ff00 0%, #008000 100%);
+            border: 3px outset #00ff00;
+            padding: 5px 15px;
+            color: #000000;
+            font-family: 'Comic Sans MS', cursive;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .new-post-form {
+            background: #000000;
+            padding: 15px;
+            border: 3px inset #808080;
+            margin-top: 20px;
+        }
+
+        .new-post-form h3 {
+            color: #00ff00;
+            margin-bottom: 10px;
+        }
+
+        .new-post-form input,
+        .new-post-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            background: #ffffff;
+            border: 3px inset #808080;
+            font-family: 'Comic Sans MS', cursive;
+        }
+
+        .new-post-form button {
+            background: linear-gradient(180deg, #ff00ff 0%, #800080 100%);
+            border: 3px outset #ff00ff;
+            color: #ffffff;
+            padding: 10px 30px;
+            font-family: 'Comic Sans MS', cursive;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        /* FAN CLUB */
+        .hamster-fans {
+            background: linear-gradient(180deg, #ff8000 0%, #804000 100%);
+        }
+
+        .fan-form {
+            background: #ffffff;
+            padding: 20px;
+            border: 5px ridge #ff00ff;
+        }
+
+        .fan-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #0000ff;
+        }
+
+        .fan-form input,
+        .fan-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 3px inset #808080;
+            font-family: 'Comic Sans MS', cursive;
+            background: #ffffcc;
+        }
+
+        .fan-form button {
+            background: linear-gradient(180deg, #00ff00 0%, #008000 100%);
+            color: #000000;
+            padding: 15px 40px;
+            border: 4px outset #00ff00;
+            font-size: 1.1rem;
+            font-family: 'Comic Sans MS', cursive;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .fan-form button:active {
+            border-style: inset;
+        }
+
+        /* GUINEA PIG HATE */
+        .guinea-pig-hate {
+            background: linear-gradient(180deg, #ff0000 0%, #800000 100%);
+            border-color: #ffff00;
+        }
+
+        .guinea-pig-hate h2 {
+            color: #ffff00;
+        }
+
+        .guinea-pig-hate ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .guinea-pig-hate li {
+            padding: 10px;
+            margin: 5px 0;
+            background: #000000;
+            border: 2px solid #ff0000;
+            color: #ff8080;
+        }
+
+        .guinea-pig-hate li:before {
+            content: "❌ ";
+        }
+
+        /* GUESTBOOK */
+        .guestbook {
+            background: linear-gradient(180deg, #008000 0%, #004000 100%);
+        }
+
+        .guestbook-entries {
+            background: #000000;
+            border: 3px inset #808080;
+            padding: 10px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .guestbook-entry {
+            padding: 10px;
+            margin: 5px 0;
+            background: #ffffcc;
+            color: #000000;
+            border-left: 4px solid #ff00ff;
+        }
+
+        /* FOOTER */
+        footer {
+            background: linear-gradient(180deg, #808080 0%, #404040 100%);
+            color: #ffff00;
+            text-align: center;
+            padding: 20px;
+            border-top: 5px ridge #ff00ff;
+        }
+
+        .visitor-counter {
+            background: #000000;
+            display: inline-block;
+            padding: 10px 20px;
+            border: 3px inset #808080;
+            margin: 10px 0;
+        }
+
+        .counter-text {
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+        }
+
+        .footer-badges {
+            margin-top: 15px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 5px;
+            background: #000000;
+            border: 2px solid;
+            font-size: 0.8rem;
+        }
+
+        .badge-netscape { border-color: #00ff00; color: #00ff00; }
+        .badge-ie { border-color: #00ffff; color: #00ffff; }
+        .badge-800x600 { border-color: #ff00ff; color: #ff00ff; }
+
+        /* SUCCESS MESSAGE */
+        #successMessage {
+            display: none;
+            background: #00ff00 !important;
+            color: #000000 !important;
+            padding: 15px;
+            border: 3px ridge #008000;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- LIVE CHAT SIDEBAR -->
+    <div class="live-chat">
+        <h3>💬 LIVE CHAT 💬</h3>
+        <div class="chat-messages" id="chatMessages">
+            <div class="chat-message">
+                <span class="username">HamsterLover99:</span>
+                <span class="text">Hey everyone! 🐹</span>
+            </div>
+            <div class="chat-message">
+                <span class="username">FluffyFan:</span>
+                <span class="text">My hamster just did a backflip!</span>
+            </div>
+            <div class="chat-message">
+                <span class="username">WheelRunner:</span>
+                <span class="text">LOL guinea pigs are so lame</span>
+            </div>
+            <div class="chat-message">
+                <span class="username">CheekPouch:</span>
+                <span class="text">Anyone else's hamster hoard sunflower seeds?</span>
+            </div>
+            <div class="chat-message">
+                <span class="username">NightOwlHam:</span>
+                <span class="text">My Nibbles keeps me up at night running on his wheel 😂</span>
+            </div>
+        </div>
+        <input type="text" class="chat-input" id="chatInput" placeholder="Type a message..." maxlength="200">
+        <button class="chat-btn" onclick="sendChat()">SEND!</button>
+        
+        <div class="online-users">
+            <h4>🟢 Online Now:</h4>
+            <div class="user-list">
+                <div class="user-online">HamsterLover99</div>
+                <div class="user-online">FluffyFan</div>
+                <div class="user-online">WheelRunner</div>
+                <div class="user-online">CheekPouch</div>
+                <div class="user-online">NightOwlHam</div>
+                <div class="user-online">You!</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-wrapper">
+        <div class="main-content">
+            <!-- MARQUEE -->
+            <div class="marquee-top">
+                <div class="marquee-content">
+                    🐹🐹🐹 WELCOME TO THE #1 HAMSTER FAN SITE ON THE WORLD WIDE WEB!!! 🐹🐹🐹 ~~~ GUINEA PIGS STINK!!! ~~~ HAMSTERS RULE!!! ~~~ SIGN OUR GUESTBOOK!!! ~~~ 🐹🐹🐹
+                </div>
+            </div>
+
+            <!-- HEADER -->
+            <header>
+                <span class="construction-gif">🚧</span>
+                <h1>~*~ HaMsTeR FaNs UnItEd ~*~</h1>
+                <p>*** The ULTIMATE Hamster Website!!! ***</p>
+                <p>Est. 1999 - Best viewed in 800x600</p>
+                <span class="construction-gif">🚧</span>
+            </header>
+
+            <!-- NAVIGATION -->
+            <nav>
+                <a href="#hotw">🏆 Hamster of Week</a>
+                <a href="#news">📰 NEWS!</a>
+                <a href="#about">🐹 About Hamsters</a>
+                <a href="#forum">💬 Forum</a>
+                <a href="#join">✉️ Join Club</a>
+                <a href="#hate">🚫 Guinea Pig Zone</a>
+                <a href="#guestbook">📝 Guestbook</a>
+            </nav>
+
+            <!-- HAMSTER OF THE WEEK -->
+            <section class="hamster-of-week" id="hotw">
+                <h2>🏆 HAMSTER OF THE WEEK!!! 🏆</h2>
+                <div class="hotw-container">
+                    <div class="hotw-image">🐹</div>
+                    <div class="hotw-info">
+                        <h3>Mr. Whiskers</h3>
+                        <p><strong>Owner:</strong> Jessica from Ohio</p>
+                        <p><strong>Age:</strong> 1.5 years</p>
+                        <p><strong>Breed:</strong> Syrian Golden</p>
+                        <p><strong>Favorite Food:</strong> Sunflower seeds!</p>
+                        <p><strong>Special Talent:</strong> Can stuff 12 seeds in his cheeks!</p>
+                        <p class="hotw-stars">⭐⭐⭐⭐⭐</p>
+                        <p><em>"Mr. Whiskers is the cutest hamster I've ever seen!" - Judge</em></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- NEWS SECTION -->
+            <section class="news-section" id="news">
+                <h2>📰 HAMSTER NEWS!!! 📰</h2>
+                
+                <div class="news-item">
+                    <h4>Scientists Discover Hamsters Dream About Running! <span class="new-badge">NEW!</span></h4>
+                    <p class="date">December 2, 2024</p>
+                    <p>A new study shows that hamsters dream about running on their wheels while they sleep! Researchers at Hamster University found brain activity similar to wheel-running during REM sleep. No wonder they're so energetic!</p>
+                </div>
+                
+                <div class="news-item">
+                    <h4>World Record: Hamster Runs 8 Miles in One Night! <span class="new-badge">NEW!</span></h4>
+                    <p class="date">November 28, 2024</p>
+                    <p>A Syrian hamster named "Speedy" broke the world record by running 8 miles on his wheel in a single night! That's more than most humans walk in a day! GO SPEEDY!!!</p>
+                </div>
+                
+                <div class="news-item">
+                    <h4>New Study: Guinea Pigs Are Actually Boring</h4>
+                    <p class="date">November 20, 2024</p>
+                    <p>Scientists confirm what we already knew - guinea pigs are way less interesting than hamsters. They can't even use wheels! How sad! 😂</p>
+                </div>
+                
+                <div class="news-item">
+                    <h4>Hamster Cafes Opening Worldwide!</h4>
+                    <p class="date">November 15, 2024</p>
+                    <p>Following the success of cat cafes, hamster cafes are now opening in major cities! Visitors can enjoy coffee while watching adorable hamsters play. Coming soon to a city near you!</p>
+                </div>
+            </section>
+
+            <!-- ABOUT HAMSTERS -->
+            <section class="about-hamsters" id="about">
+                <h2>🐹 Why Hamsters Are AMAZING!!! 🐹</h2>
+                <p style="color: #ffffff; margin-bottom: 15px;">Hamsters are the BEST pets EVER! Here's why:</p>
+                <ul>
+                    <li>They're adorable and fluffy with tiny paws!!!</li>
+                    <li>They have cute cheek pouches for storing food - SO CUTE!</li>
+                    <li>They're low maintenance and easy to care for</li>
+                    <li>They love running on their wheels (endless entertainment!)</li>
+                    <li>They come in many colors and varieties</li>
+                    <li>They're nocturnal adventurers - party all night!</li>
+                    <li>They make the cutest squeaking sounds</li>
+                    <li>They fit perfectly in the palm of your hand</li>
+                </ul>
+            </section>
+
+            <!-- FORUM SECTION -->
+            <section class="forum-section" id="forum">
+                <h2>💬 HAMSTER FORUM 💬</h2>
+                <p style="color: #ffffff; margin-bottom: 15px;">Share your hamster stories and pics with the community!</p>
+                
+                <div class="forum-post">
+                    <div class="forum-header">
+                        <span class="forum-username">🐹 HamsterMom2024</span>
+                        <span class="forum-date">Dec 1, 2024 - 3:45 PM</span>
+                    </div>
+                    <div class="forum-body">
+                        <p>Look at my baby Cinnamon! She just got a new wheel and she LOVES it!</p>
+                        <div class="forum-image">
+                            <div class="forum-image-placeholder">🐹</div>
+                        </div>
+                        <p>Isn't she the cutest?! 😍</p>
+                        <button class="forum-reply-btn">💬 Reply</button>
+                    </div>
+                </div>
+                
+                <div class="forum-post">
+                    <div class="forum-header">
+                        <span class="forum-username">🐹 FluffyFan99</span>
+                        <span class="forum-date">Nov 30, 2024 - 8:22 PM</span>
+                    </div>
+                    <div class="forum-body">
+                        <p>My hamster Peanut figured out how to escape his cage! 😱 Had to hamster-proof the whole room!</p>
+                        <div class="forum-image">
+                            <div class="forum-image-placeholder">🏃</div>
+                        </div>
+                        <p>Here he is plotting his next escape... 😂</p>
+                        <button class="forum-reply-btn">💬 Reply</button>
+                    </div>
+                </div>
+                
+                <div class="forum-post">
+                    <div class="forum-header">
+                        <span class="forum-username">🐹 WheelMaster</span>
+                        <span class="forum-date">Nov 29, 2024 - 11:15 AM</span>
+                    </div>
+                    <div class="forum-body">
+                        <p>BREAKING: I caught my hamster sleeping in his food bowl AGAIN! 🤣</p>
+                        <div class="forum-image">
+                            <div class="forum-image-placeholder">😴</div>
+                        </div>
+                        <p>He's living his best life honestly</p>
+                        <button class="forum-reply-btn">💬 Reply</button>
+                    </div>
+                </div>
+
+                <div class="new-post-form">
+                    <h3>📝 Create New Post:</h3>
+                    <input type="text" id="forumTitle" placeholder="Post Title..." maxlength="100">
+                    <textarea id="forumContent" rows="4" placeholder="Share your hamster story..." maxlength="500"></textarea>
+                    <input type="file" id="forumImage" accept="image/*">
+                    <br>
+                    <button onclick="submitForumPost()">POST TO FORUM! 🐹</button>
+                </div>
+            </section>
+
+            <!-- JOIN FAN CLUB -->
+            <section class="hamster-fans" id="join">
+                <h2>✉️ Join the Hamster Fan Club!!! ✉️</h2>
+                <p style="color: #ffffff; margin-bottom: 15px;">Sign up to connect with fellow hamster lovers!</p>
+                <div class="fan-form">
+                    <form id="fanForm">
+                        <label for="name">Your Name:</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" required minlength="2" maxlength="100">
+
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required maxlength="254">
+
+                        <label for="hamsterName">Your Hamster's Name:</label>
+                        <input type="text" id="hamsterName" name="hamsterName" placeholder="What's your hamster called?" maxlength="100">
+
+                        <label for="message">Why Do You Love Hamsters?</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Tell us about your love for hamsters!" maxlength="500"></textarea>
+                        
+                        <div id="successMessage">
+                            🐹🐹🐹 WELCOME TO THE CLUB!!! 🐹🐹🐹
+                        </div>
+
+                        <button type="submit">JOIN THE FAN CLUB!!! 🐹</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- GUINEA PIG HATE -->
+            <section class="guinea-pig-hate" id="hate">
+                <h2>🚫 Why Guinea Pigs STINK!!! 🚫</h2>
+                <p style="margin-bottom: 15px;">Let's be honest - guinea pigs are NOT as great as hamsters:</p>
+                <ul>
+                    <li>They're way too big and clunky - NOT cute like hamsters!</li>
+                    <li>They make annoying WHEEK WHEEK sounds constantly!!!</li>
+                    <li>They can't even run on wheels - HOW BORING!</li>
+                    <li>They need way more space and are HIGH MAINTENANCE</li>
+                    <li>They don't have adorable cheek pouches - LOSERS!</li>
+                    <li>They're basically just oversized, less cute rodents</li>
+                    <li>They require a companion - hamsters are INDEPENDENT!</li>
+                    <li>They poop EVERYWHERE and way more than hamsters!</li>
+                </ul>
+                <p style="margin-top: 20px; font-size: 1.5rem; text-align: center; animation: blink 0.5s infinite;">
+                    🐹 TEAM HAMSTER FOREVER!!! 🐹
+                </p>
+            </section>
+
+            <!-- GUESTBOOK -->
+            <section class="guestbook" id="guestbook">
+                <h2>📝 SIGN OUR GUESTBOOK!!! 📝</h2>
+                <div class="guestbook-entries">
+                    <div class="guestbook-entry">
+                        <strong>HamsterQueen:</strong> "OMG best site EVER! Hamsters rule!" ⭐⭐⭐⭐⭐
+                    </div>
+                    <div class="guestbook-entry">
+                        <strong>FluffyLover:</strong> "Finally someone who understands guinea pigs are lame! 😂"
+                    </div>
+                    <div class="guestbook-entry">
+                        <strong>WheelSpinner:</strong> "My hamster Biscuit says hi! 🐹"
+                    </div>
+                    <div class="guestbook-entry">
+                        <strong>Anonymous:</strong> "This website is SO 90s and I LOVE IT!"
+                    </div>
+                </div>
+            </section>
+
+            <!-- FOOTER -->
+            <footer>
+                <p>© 1999-2024 HaMsTeR FaNs UnItEd - All Rights Reserved</p>
+                <p>Made with ❤️ for hamster lovers everywhere!</p>
+                
+                <div class="visitor-counter">
+                    <span class="counter-text">You are visitor #: </span>
+                    <span class="counter-text" id="visitorCount">000001337</span>
+                </div>
+                
+                <p>🐹 HAMSTERS RULE, GUINEA PIGS DROOL!!! 🐹</p>
+                
+                <div class="footer-badges">
+                    <span class="badge badge-netscape">Netscape Now!</span>
+                    <span class="badge badge-ie">IE 4.0+</span>
+                    <span class="badge badge-800x600">800x600</span>
+                </div>
+                
+                <p style="margin-top: 15px; font-size: 0.8rem;">
+                    <a href="mailto:webmaster@hamsterfans.geocities.com" style="color: #00ffff;">Email the Webmaster!</a>
+                </p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Fan Club Form
+        document.getElementById('fanForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var successMessage = document.getElementById('successMessage');
+            successMessage.style.display = 'block';
+            this.reset();
+            setTimeout(function() {
+                successMessage.style.display = 'none';
+            }, 5000);
+        });
+
+        // Live Chat Function
+        function sendChat() {
+            var input = document.getElementById('chatInput');
+            var message = input.value.trim();
+            if (message) {
+                var chatMessages = document.getElementById('chatMessages');
+                var newMessage = document.createElement('div');
+                newMessage.className = 'chat-message';
+                newMessage.innerHTML = '<span class="username">You:</span> <span class="text">' + escapeHtml(message) + '</span>';
+                chatMessages.appendChild(newMessage);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                input.value = '';
+                
+                // Simulate response
+                setTimeout(function() {
+                    var responses = [
+                        "Cool! 🐹",
+                        "Hamsters are the best!",
+                        "LOL totally agree!",
+                        "My hamster does that too!",
+                        "Guinea pigs could NEVER! 😂"
+                    ];
+                    var randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                    var botMessage = document.createElement('div');
+                    botMessage.className = 'chat-message';
+                    botMessage.innerHTML = '<span class="username">HamsterBot:</span> <span class="text">' + randomResponse + '</span>';
+                    chatMessages.appendChild(botMessage);
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 1500);
+            }
+        }
+
+        // Forum Post Function
+        function submitForumPost() {
+            var title = document.getElementById('forumTitle').value.trim();
+            var content = document.getElementById('forumContent').value.trim();
+            if (title && content) {
+                alert('🐹 Your post has been submitted for review! 🐹');
+                document.getElementById('forumTitle').value = '';
+                document.getElementById('forumContent').value = '';
+            } else {
+                alert('Please fill in both title and content!');
+            }
+        }
+
+        // Enter key for chat
+        document.getElementById('chatInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendChat();
+            }
+        });
+
+        // Escape HTML to prevent XSS
+        function escapeHtml(text) {
+            var div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Increment visitor counter animation
+        var count = 1337;
+        setInterval(function() {
+            count++;
+            document.getElementById('visitorCount').textContent = String(count).padStart(9, '0');
+        }, 30000);
+    </script>
+</body>
+</html>
